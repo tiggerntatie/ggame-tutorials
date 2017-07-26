@@ -8,6 +8,10 @@ from ggame import LineStyle, Color
 
 myapp = App()
 
+print(myapp.width, myapp.height)
+
+
+
 green = Color(0x00ff00, 1)
 black = Color(0, 1)
 noline = LineStyle(0, black)
