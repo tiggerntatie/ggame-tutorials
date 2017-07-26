@@ -5,13 +5,13 @@ by E. Dennison
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset, Sprite, Sound
 from ggame import LineStyle, Color
 
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
+
+myapp = App()
 
 green = Color(0x00ff00, 1)
 black = Color(0, 1)
 noline = LineStyle(0, black)
-bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, green)
+bg_asset = RectangleAsset(myapp.width, myapp.height, noline, green)
 bg = Sprite(bg_asset, (0,0))
 
 # Sounds
@@ -43,7 +43,7 @@ def reverse(b):
 def step():
     if ball.go:
         ball.x += ball.dir
-        if ball.x + ball.width > SCREEN_WIDTH or ball.x < 0:
+        if ball.x + ball.width > myapp.width or ball.x < 0:
             ball.x -= ball.dir
             reverse(ball)
 
@@ -61,7 +61,6 @@ def mouseClick(event):
     ball.y = event.y
     pew1.play()
 
-myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 # Set up event handlers for the app
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenKeyEvent('keydown', 'r', reverseKey)
