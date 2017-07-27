@@ -12,6 +12,10 @@ class SpaceShip(Sprite):
         self.vx = 1
         self.vy = 1
         self.vr = 0.01
+        self.thrust = 0
+        self.thrustframe = 1
+        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
+        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
 
     def step(self):
         self.x += self.vx
