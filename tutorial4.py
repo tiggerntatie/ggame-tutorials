@@ -12,6 +12,6 @@ class SpaceGame(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, black)
         bg = Sprite(bg_asset, (0,0))
         
-myapp = App()
+myapp = SpaceGame()
 
 myapp.run()
