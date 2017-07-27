@@ -8,11 +8,6 @@ from ggame import LineStyle, Color
 
 myapp = App()
 
-print(myapp.width, myapp.height)
-
-rect = App._win._renderer.view.getBoundingClientRect()
-print(rect.left, rect.top, rect.right, rect.bottom, rect.width, rect.height)
-print(App._win._stage.scale)
 
 green = Color(0x00ff00, 1)
 black = Color(0, 1)
@@ -29,10 +24,11 @@ pop = Sound(pop_asset)
 ball_asset = ImageAsset("images/orb-150545_640.png")
 ball = Sprite(ball_asset, (0, 0))
 # Original image is too big. Scale it to 1/10 its original size
-ball.scale = 0.01  # EJD FIX
-ball.y = 200
+ball.scale = 0.1  
+ball.y = myapp.height/2
+print(ball.y)
 # custom attributes
-ball.dir = 0  # EJD FIX
+ball.dir = 1  # EJD FIX
 ball.go = True
 # Sounds
 pew1_asset = SoundAsset("sounds/pew1.mp3")
@@ -63,7 +59,6 @@ def reverseKey(event):
 
 # Handle the mouse click
 def mouseClick(event):
-    print(event.x, event.y)
     ball.x = event.x
     ball.y = event.y
     pew1.play()
